@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material';
-import { timer, Observable } from 'rxjs';
+import { timer, Observable, of } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
 @Component({
@@ -17,11 +17,8 @@ export class ErrorModalComponent implements OnInit {
 
   ngOnInit() {
     const { message, duration } = this.data;
-    const secondsLeft = Math.floor(duration / 1000);
-    this.errorMessage$ = timer(0, 1000).pipe(
-      take(secondsLeft),
-      map((i) => `${message} (${secondsLeft - i})`)
-    );
+    // TODO
+    this.errorMessage$ = of(message);
   }
 
 }
