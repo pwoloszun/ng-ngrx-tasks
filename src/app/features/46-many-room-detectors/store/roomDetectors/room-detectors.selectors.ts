@@ -12,27 +12,18 @@ const selectFeature = (state: ApplicationState) => {
   return state[roomDetectorsFeatureKey];
 };
 
-export const selectRoomDetectorsIsManyLoading = createSelector(
-  selectFeature,
-  (state) => state.isManyLoading,
-);
+// TODO export const selectRoomDetectorsIsManyLoading
 
 export const selectRoomDetectorsIsRunning = createSelector(
   selectFeature,
   (state) => state.isRunning,
 );
 
-export const selectRoomDetectorsIds = createSelector(
-  selectFeature,
-  selectIds,
-);
+// TODO export const selectRoomDetectorsIds
 
 export const selectRoomDetectorsEntities = createSelector(
   selectFeature,
   selectEntities,
 );
 
-export const selectRoomDetectorsAll = createSelector(
-  selectFeature,
-  selectAll,
-);
+// TODO export const selectRoomDetectorsAll

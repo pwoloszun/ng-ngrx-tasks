@@ -32,7 +32,6 @@ export class MainNavComponent {
     { text: 'Async Flow refactored', url: '/async-flow-refactored' },
 
     { text: 'Adv. Todos', url: '/adv-todos' },
-    { text: 'Single room detector', url: '/single-room-detector' },
     { text: 'Many room detectors', url: '/many-room-detectors' },
 
   ];

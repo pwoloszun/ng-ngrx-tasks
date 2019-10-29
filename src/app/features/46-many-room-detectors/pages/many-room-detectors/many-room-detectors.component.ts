@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 import { actions, ApplicationState, selectors } from '../../store/roomDetectors';
 
@@ -10,29 +11,25 @@ import { actions, ApplicationState, selectors } from '../../store/roomDetectors'
 })
 export class ManyRoomDetectorsComponent implements OnInit {
 
-  roomDetectors$ = this.store.pipe(
-    select(selectors.selectRoomDetectorsAll),
-  );
-  isManyLoading$ = this.store.pipe(
-    select(selectors.selectRoomDetectorsIsManyLoading),
-  );
+  roomDetectors$ = of([]);
+  isManyLoading$ = of(true);
 
   constructor(private store: Store<ApplicationState>) {
   }
 
   ngOnInit() {
-    this.store.dispatch(actions.loadManyRoomDetectorsRequest());
+    // TODO load room detectors
   }
 
   handleStart(id: number) {
-    this.store.dispatch(actions.startSingleRoomTrackingRequest({ id }));
+    // TODO start single room tracking
   }
 
   handleStop(id: number) {
-    this.store.dispatch(actions.stopSingleRoomTracking({ id }));
+    // TODO stop single room tracking
   }
 
   handleStopAll() {
-    this.store.dispatch(actions.stopAllRoomsTracking());
+    // TODO stop ALL rooms tracking
   }
 }

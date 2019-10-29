@@ -23,35 +23,16 @@ export const startSingleRoomTrackingRequest = createAction(
   props<{ id: number }>()
 );
 
-export const startSingleRoomTrackingSuccess = createAction(
-  RoomDetectorsActionTypes.StartSingleRoomTrackingSuccess,
-  props<{ id: number }>()
-);
+// TODO export const startSingleRoomTrackingSuccess
 
-export const stopSingleRoomTracking = createAction(
-  RoomDetectorsActionTypes.StopSingleRoomTracking,
-  props<{ id: number }>()
-);
+// TODO export const stopSingleRoomTracking
 
-export const stopAllRoomsTracking = createAction(
-  RoomDetectorsActionTypes.StopAllRoomsTracking,
-);
+// TODO export const stopAllRoomsTracking
 
-export const loadSingleRoomDetectorRequest = createAction(
-  RoomDetectorsActionTypes.LoadSingleRoomDetectorRequest,
-  props<{ id: number }>()
-);
+// TODO export const loadSingleRoomDetectorRequest
 
-export const loadSingleRoomDetectorSuccess = createAction(
-  RoomDetectorsActionTypes.LoadSingleRoomDetectorSuccess,
-  props<{ roomDetectorUpdate: Update<RoomDetector> }>()
-);
+// TODO export const loadSingleRoomDetectorSuccess
 
-export const loadManyRoomDetectorsRequest = createAction(
-  RoomDetectorsActionTypes.LoadManyRoomDetectorsRequest,
-);
+// TODO export const loadManyRoomDetectorsRequest
 
-export const loadManyRoomDetectorsSuccess = createAction(
-  RoomDetectorsActionTypes.LoadManyRoomDetectorsSuccess,
-  props<{ roomDetectors: RoomDetector[] }>()
-);
+// TODO export const loadManyRoomDetectorsSuccess

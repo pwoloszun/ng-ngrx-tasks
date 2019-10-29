@@ -25,38 +25,11 @@ export const initialState: State = adapter.getInitialState({
 
 const roomDetectorsReducer = createReducer(
   initialState,
-  on(actions.startSingleRoomTrackingSuccess, (state, { id }) => {
-    return produce(state, (draftState: Draft<State>) => {
-      draftState.isRunning[id] = true;
-    });
-  }),
-  on(actions.stopSingleRoomTracking, (state, { id }) => {
-    return produce(state, (draftState: Draft<State>) => {
-      draftState.isRunning[id] = false;
-    });
-  }),
-  on(actions.stopAllRoomsTracking, (state) => {
-    return produce(state, (draftState: Draft<State>) => {
-      draftState.isRunning = {};
-    });
-  }),
 
-  on(actions.loadSingleRoomDetectorSuccess, (state, { roomDetectorUpdate }) => {
-    return adapter.updateOne(roomDetectorUpdate, state);
-  }),
-
-  on(actions.loadManyRoomDetectorsRequest, (state, action) => {
-    return produce(state, (draftState: Draft<State>) => {
-      draftState.isManyLoading = true;
-    });
-  }),
-  on(actions.loadManyRoomDetectorsSuccess, (state, action) => {
-    const { roomDetectors } = action;
-    const nextState = produce(state, (draftState: Draft<State>) => {
-      draftState.isManyLoading = false;
-    });
-    return adapter.addAll(roomDetectors, nextState);
-  }),
+  // TODO
+  // on(actions.someAction, (state, action) => {
+  //   return state;
+  // }),
 );
 
 export function reducer(state: State | undefined, action: Action): State {

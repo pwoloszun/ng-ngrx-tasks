@@ -15,48 +15,16 @@ export class TodosEffects {
   @Effect()
   loadManyTodos$ = this.actions$.pipe(
     ofType(actions.TodosActionTypes.LoadManyTodosRequest),
-    mergeMap((action) => {
-      return this.todosService.getAll();
-    }),
-    map((todos) => {
-      return actions.loadManyTodosSuccess({ todos });
-    })
+    // TODO
   );
 
-  @Effect()
-  deleteSingleTodo$ = this.actions$.pipe(
-    ofType(actions.TodosActionTypes.DeleteSingleTodoRequest),
-    mergeMap((action) => {
-      const { id } = action;
-      return this.todosService.remove({ id, title: '' });
-    }),
-    map((id: number) => {
-      return actions.deleteSingleTodoSuccess({ id });
-    })
-  );
+  // TODO
+  // @Effect()
+  // deleteSingleTodo$
 
-  @Effect()
-  optimisticUpdateSingleTodo$ = this.actions$.pipe(
-    ofType(actions.TodosActionTypes.OptimisticUpdateSingleTodoRequest),
-    // end editing todo
-    tap((action) => {
-      const { todoUpdate } = action;
-      const { id } = todoUpdate;
-      this.store$.dispatch(actions.endEditSingleTodo({ id }));
-    }),
-    mergeMap((action) => {
-      const { todoUpdate } = action;
-      const { id, changes } = todoUpdate;
-      return this.todosService.update(id, changes);
-    }),
-    map((todo: Todo) => {
-      const todoUpdate = {
-        id: todo.id,
-        changes: todo,
-      };
-      return actions.optimisticUpdateSingleTodoSuccess({ todoUpdate });
-    }),
-  );
+  // TODO
+  // @Effect()
+  // optimisticUpdateSingleTodo$
 
   constructor(
     private actions$: Actions,

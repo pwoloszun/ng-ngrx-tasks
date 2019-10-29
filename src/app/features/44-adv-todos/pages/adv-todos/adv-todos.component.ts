@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 import { actions, selectors } from '../../store/todos';
 import { Todo, ITEM_STATUS } from '../../store/todos/todos.models';
-import { selectTodosStatuses } from '../../store/todos/todos.selectors';
 
 @Component({
   selector: 'nts-adv-todos',
@@ -12,15 +12,10 @@ import { selectTodosStatuses } from '../../store/todos/todos.selectors';
 })
 export class AdvTodosComponent implements OnInit {
 
-  todos$ = this.store.pipe(
-    select(selectors.selectTodosAll),
-  );
-  statuses$ = this.store.pipe(
-    select(selectors.selectTodosStatuses),
-  );
-  isFetchingMany$ = this.store.pipe(
-    select(selectors.selectTodosIsFetchingMany),
-  );
+  // TODO
+  todos$ = of([]);
+  statuses$ = of([]);
+  isFetchingMany$ = of(true);
 
   // TODO: remove below code
   // items = [
@@ -42,12 +37,10 @@ export class AdvTodosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(actions.loadManyTodosRequest());
+    // TODO: load many todos
   }
 
   handleRemove(todo: Todo) {
-    this.store.dispatch(actions.deleteSingleTodoRequest({ id: todo.id }));
-
     // TODO: remove below code
     // const index = todo.id / 100 - 1;
     // this.statuses[index] = ITEM_STATUS.removing;
@@ -57,21 +50,12 @@ export class AdvTodosComponent implements OnInit {
   }
 
   handleEdit(todo: Todo) {
-    this.store.dispatch(actions.startEditSingleTodo({ id: todo.id }));
-
     // TODO: remove below code
     // const index = todo.id / 100 - 1;
     // this.statuses[index] = ITEM_STATUS.editing;
   }
 
   handleSaveEdit({ item, data }) {
-    const { id } = item;
-    const todoUpdate = {
-      id,
-      changes: data,
-    };
-    this.store.dispatch(actions.optimisticUpdateSingleTodoRequest({ todoUpdate }));
-
     // TODO: remove below code
     // const index = item.id / 100 - 1;
     // this.statuses[index] = ITEM_STATUS.saving;
@@ -81,8 +65,6 @@ export class AdvTodosComponent implements OnInit {
   }
 
   handleCancelEdit(todo: Todo) {
-    this.store.dispatch(actions.endEditSingleTodo({ id: todo.id }));
-
     // TODO: remove below code
     // const index = todo.id / 100 - 1;
     // this.statuses[index] = ITEM_STATUS.persisted;

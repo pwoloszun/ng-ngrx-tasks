@@ -20,52 +20,19 @@ export const selectTodosIds = createSelector(
   selectIds,
 );
 
-export const selectTodosEntities = createSelector(
-  selectFeature,
-  selectEntities,
-);
+// TODO export const selectTodosEntities
 
-export const selectTodosAll = createSelector(
-  selectFeature,
-  selectAll,
-);
+// TODO export const selectTodosAll
 
-export const selectTodosIsFetchingMany = createSelector(
-  selectFeature,
-  (state) => state.isFetchingMany,
-);
+// TODO export const selectTodosIsFetchingMany
 
 export const selectTodosIsRemoving = createSelector(
   selectFeature,
   (state) => state.isRemoving,
 );
 
-export const selectTodosIsUpdating = createSelector(
-  selectFeature,
-  (state) => state.isUpdating,
-);
+// TODO export const selectTodosIsUpdating
 
-export const selectTodosIsEditing = createSelector(
-  selectFeature,
-  (state) => state.isEditing,
-);
+// TODO export const selectTodosIsEditing
 
-export const selectTodosStatuses = createSelector(
-  selectTodosIds,
-  selectTodosIsEditing,
-  selectTodosIsRemoving,
-  selectTodosIsUpdating,
-  (ids, isEditing, isRemoving, isUdating) => {
-    return map(ids, (id: number) => {
-      if (isRemoving[id]) {
-        return ITEM_STATUS.removing;
-      } else if (isEditing[id]) {
-        return ITEM_STATUS.editing;
-      } else if (isUdating[id]) {
-        return ITEM_STATUS.saving;
-      } else {
-        return ITEM_STATUS.persisted;
-      }
-    });
-  },
-);
+// TODO export const selectTodosStatuses

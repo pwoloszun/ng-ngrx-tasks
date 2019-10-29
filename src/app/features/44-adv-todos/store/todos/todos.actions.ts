@@ -22,37 +22,16 @@ export const loadManyTodosRequest = createAction(
   TodosActionTypes.LoadManyTodosRequest,
 );
 
-export const loadManyTodosSuccess = createAction(
-  TodosActionTypes.LoadManyTodosSuccess,
-  props<{ todos: Todo[] }>()
-);
+// TODO export const loadManyTodosSuccess
 
-export const deleteSingleTodoRequest = createAction(
-  TodosActionTypes.DeleteSingleTodoRequest,
-  props<{ id: number }>()
-);
+// TODO export const deleteSingleTodoRequest
 
-export const deleteSingleTodoSuccess = createAction(
-  TodosActionTypes.DeleteSingleTodoSuccess,
-  props<{ id: number }>()
-);
+// TODO export const deleteSingleTodoSuccess
 
-export const optimisticUpdateSingleTodoRequest = createAction(
-  TodosActionTypes.OptimisticUpdateSingleTodoRequest,
-  props<{ todoUpdate: Update<Todo> }>()
-);
+// TODO export const optimisticUpdateSingleTodoRequest
 
-export const optimisticUpdateSingleTodoSuccess = createAction(
-  TodosActionTypes.OptimisticUpdateSingleTodoSuccess,
-  props<{ todoUpdate: Update<Todo> }>()
-);
+// TODO export const optimisticUpdateSingleTodoSuccess
 
-export const startEditSingleTodo = createAction(
-  TodosActionTypes.StartEditTodo,
-  props<{ id: number }>()
-);
+// TODO startEditSingleTodo
 
-export const endEditSingleTodo = createAction(
-  TodosActionTypes.EndEditTodo,
-  props<{ id: number }>()
-);
+// TODO export const endEditSingleTodo

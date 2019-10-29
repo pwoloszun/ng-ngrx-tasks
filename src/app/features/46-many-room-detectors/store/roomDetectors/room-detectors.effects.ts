@@ -14,58 +14,21 @@ import { ApplicationState } from './room-detectors.reducer';
 const SYNC_FRAME_IN_MS = 2600;
 
 function stopSyncingRoom$(id, action$) {
-  const stopAll$ = action$.pipe(
-    ofType(actions.RoomDetectorsActionTypes.StopAllRoomsTracking)
-  );
+  // TODO later: handle stop ALL rooms tracking
 
-  const stopByRoomId$ = action$.pipe(
-    ofType(actions.RoomDetectorsActionTypes.StopSingleRoomTracking),
-    filter((action) => {
-      const actualId = (action as any).id;
-      return actualId === id;
-    })
-  );
-
-  return race(
-    stopAll$,
-    stopByRoomId$,
-  );
+  // TODO later: handle stop single room tracking
 }
 
 function fetchRoomTemperature$(roomTemperatureApiService, id) {
-  const preRequest$ = of(actions.loadSingleRoomDetectorRequest({ id }));
-
-  const request$ = roomTemperatureApiService
-    .temperatureFor(id)
-    .pipe(
-      map((roomDetector: RoomDetector) => {
-        const roomDetectorUpdate = {
-          id: roomDetector.id,
-          changes: roomDetector,
-        };
-        return actions.loadSingleRoomDetectorSuccess({ roomDetectorUpdate });
-      }),
-    );
-
-  return concat(
-    preRequest$,
-    request$
-  );
+  // TODO
 }
 
 function syncRoomTemperatureTask$(roomTemperatureApiService, id, action$) {
-  const syncingStarted$ = of(actions.startSingleRoomTrackingSuccess({ id }));
-  const syncingTask$ = interval(SYNC_FRAME_IN_MS).pipe(
-    takeUntil(stopSyncingRoom$(id, action$)),
-    mergeMap(() => {
-      return fetchRoomTemperature$(roomTemperatureApiService, id);
-    }),
-  );
+  // TODO later: mark room as RUNNING
 
-  return concat(
-    syncingStarted$,
-    syncingTask$
-  );
+  // TODO: every SYNC_FRAME_IN_MS fetch current temp
+
+  // TODO: take until stopSyncingRoom$
 }
 
 @Injectable()
@@ -74,33 +37,17 @@ export class RoomDetectorsEffects {
     select(selectors.selectRoomDetectorsIsRunning),
   );
 
-  @Effect()
-  loadManyRoomDetectors$ = this.actions$.pipe(
-    ofType(actions.RoomDetectorsActionTypes.LoadManyRoomDetectorsRequest),
-    mergeMap((action) => {
-      return this.roomTemperatureApiService.getAll();
-    }),
-    map((roomDetectors: RoomDetector[]) => {
-      return actions.loadManyRoomDetectorsSuccess({ roomDetectors });
-    }),
-  );
+  // TODO
+  // @Effect()
+  // loadManyRoomDetectors$
 
+  // TODO
   @Effect()
   startSingleRoomTracking$ = this.actions$.pipe(
     ofType(actions.RoomDetectorsActionTypes.StartSingleRoomTrackingRequest),
-    withLatestFrom(this.isRunning$),
-    filter(([action, isRunning]) => {
-      const { id } = action;
-      return !isRunning[id];
-    }),
-    mergeMap(([action]) => {
-      const { id } = action;
-      return syncRoomTemperatureTask$(
-        this.roomTemperatureApiService,
-        id,
-        this.actions$
-      );
-    }),
+    // TODO later: check if not already running
+
+    // TODO: run syncing BG task: syncRoomTemperatureTask$
   );
 
   constructor(
