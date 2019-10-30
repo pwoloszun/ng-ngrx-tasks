@@ -4,14 +4,15 @@ import * as effects from './async-counter-refactored.effects';
 import {
   asyncCounterRefactoredFeatureKey,
   State,
-  reducer
+  reducer,
+  ApplicationState,
 } from './async-counter-refactored.reducer';
 
 export {
   actions,
   selectors,
   effects,
-
+  ApplicationState,
   State,
   reducer,
   asyncCounterRefactoredFeatureKey,

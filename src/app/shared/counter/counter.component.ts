@@ -17,8 +17,10 @@ export class CounterComponent {
     if (!this.updatedAt) {
       return null;
     }
-    const dt = new Date(this.updatedAt);
-    return dt.toLocaleString('en-GB', { timeZone: 'UTC' }).substr(0, 20);
+    const tmp = new Date();
+    const utc = this.updatedAt + (tmp.getTimezoneOffset() * 60000);
+    const dt = new Date(utc);
+    return dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
   }
 
   incrementHandler() {

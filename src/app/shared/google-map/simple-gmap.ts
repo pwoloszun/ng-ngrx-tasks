@@ -1,8 +1,12 @@
 import { Marker } from './marker';
 
-const google: any = window['google'];
-if (!google) {
-  throw new Error('Google Maps not available');
+let google: any;
+
+if (!!window && !process) {
+  google = window['google'];
+  if (!google) {
+    throw new Error('Google Maps not available');
+  }
 }
 
 export class SimpleGMap {

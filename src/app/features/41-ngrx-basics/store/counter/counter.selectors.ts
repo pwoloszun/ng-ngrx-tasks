@@ -6,8 +6,12 @@ const selectFeature = (state: ApplicationState) => {
   return state[counterFeatureKey];
 };
 
-// TODO
-// export const selectCounterValue = null;
+export const selectCounterValue = createSelector(
+  selectFeature,
+  (state: State) => {
+    return state.value;
+  }
+);
 
 // TODO
 // export const selectCounterSquareValue = null;

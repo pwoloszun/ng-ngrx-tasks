@@ -3,7 +3,8 @@ import * as selectors from './counter.selectors';
 import {
   counterFeatureKey,
   State,
-  reducer
+  reducer,
+  ApplicationState,
 } from './counter.reducer';
 
 export {
@@ -11,5 +12,6 @@ export {
   selectors,
   State,
   reducer,
+  ApplicationState,
   counterFeatureKey,
 };
