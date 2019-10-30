@@ -2,8 +2,8 @@ import { Marker } from './marker';
 
 let google: any;
 
-if (!!window && !process) {
-  google = window['google'];
+if (!!window) {
+  google = window.google as any;
   if (!google) {
     throw new Error('Google Maps not available');
   }
