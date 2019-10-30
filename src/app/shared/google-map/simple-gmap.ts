@@ -3,7 +3,7 @@ import { Marker } from './marker';
 let google: any;
 
 if (!!window) {
-  google = window.google as any;
+  google = (window as any).google;
   if (!google) {
     throw new Error('Google Maps not available');
   }
