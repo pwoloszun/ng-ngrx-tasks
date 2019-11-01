@@ -21,11 +21,8 @@ export function createStore<T>(reducers = {}, effects = [], providers = []) {
       Store,
       Actions,
       ...providers,
-      // ...effects,
-      // ...providers,
     ],
   });
 
-  const acts = TestBed.get(Actions);
   return TestBed.get<Store<T>>(Store);
 }

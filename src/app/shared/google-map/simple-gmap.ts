@@ -2,6 +2,7 @@ import { Marker } from './marker';
 
 let google: any;
 
+// @ts-ignore
 if (!!window) {
   google = (window as any).google;
   if (!google) {
