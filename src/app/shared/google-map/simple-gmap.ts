@@ -1,13 +1,8 @@
 import { Marker } from './marker';
+import { google } from './google.module';
 
-let google: any;
-
-// @ts-ignore
-if (!!window) {
-  google = (window as any).google;
-  if (!google) {
-    throw new Error('Google Maps not available');
-  }
+if (!google) {
+  throw new Error('Google Maps not available');
 }
 
 export class SimpleGMap {
@@ -17,9 +12,9 @@ export class SimpleGMap {
   private _latLngs: any[];
 
   constructor(element: HTMLElement) {
-    let center = new google.maps.LatLng(52.14, 21.0);
+    const center = new google.maps.LatLng(52.14, 21.0);
     this._map = new google.maps.Map(element, {
-      center: center,
+      center,
       zoom: 6
     });
     this._markers = [];
@@ -37,19 +32,4 @@ export class SimpleGMap {
     this._markers.push(marker);
     return new Marker(marker, object);
   }
-
-  //TODO
-  /*
-   fitMarkerBounds() {
-   let lats = _(this._latLngs).pluck("lat");
-   let lngs = _(this._latLngs).pluck("lng");
-   let south = _(lats).min();
-   let north = _(lats).max();
-   let east = _(lngs).max();
-   let west = _(lats).min();
-   let bounds = new gm.LatLngBounds(new gm.LatLng(south, west), new gm.LatLng(north, east));
-   this._map.fitBounds(bounds);
-   }
-   */
-
 }
