@@ -8,8 +8,8 @@ import { RealEstate } from './real-estate.model';
 export class ManageRealEstatesService {
 
   // TODO: selected & realEstates
-  realEstates$ = of([]);
-  selectedRealEstate$ = of(null);
+  realEstates$ = of([]); // TODO
+  selectedRealEstate$ = of(null);  // TODO
 
   constructor(private apiService: RealEstatesApiService) {
   }

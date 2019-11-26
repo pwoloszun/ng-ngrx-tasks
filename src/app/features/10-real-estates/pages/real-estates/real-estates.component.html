@@ -2,24 +2,15 @@
 
 <div fxLayout="row" fxLayoutAlign="center center">
   <div fxFlex="66">
-    <nts-google-map
-      [geoObjects]="manageService.realEstates$ | async"
-      [selected]="manageService.selectedRealEstate$ | async"
-      (markerClick)="onRealEstateClick($event)"
-    ></nts-google-map>
+    GMAP_TODO
   </div>
 
   <div fxFlex="33">
-    <nts-estate-details [item]="manageService.selectedRealEstate$ | async"></nts-estate-details>
+    ESTATE_DETAILS_TODO
   </div>
 
 </div>
 
 <div>
-  <nts-data-table
-    [items]="manageService.realEstates$ | async"
-    [selectedItem]="manageService.selectedRealEstate$ | async"
-    [metaData]="listHeaders"
-    (itemClick)="onRealEstateClick($event)"
-  ></nts-data-table>
+  DATA_TABLE_TODO
 </div>

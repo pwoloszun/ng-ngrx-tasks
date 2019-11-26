@@ -1,21 +1,24 @@
-<div *ngIf="items" class="list">
+<div class="list">
   <table class="data-table">
     <thead class="list-header">
     <tr>
-      <td *ngFor="let meta of metaData">
-        <a>{{meta.text}}</a>
+      <td>
+        <a>HEADER TODO</a>
       </td>
     </tr>
     </thead>
     <tbody class="items-container">
-    <tr
-      *ngFor="let item of items"
-      [ngClass]="{'highlighted': selectedItem === item}"
-      (click)="onRowClick(item)"
-      class="list-item"
-    >
-      <td *ngFor="let meta of metaData">
-        {{item[meta.value]}}
+    <tr class="list-item">
+      <td>
+        CELL TODO
+      </td>
+
+      <td>
+        CELL TODO
+      </td>
+
+      <td>
+        CELL TODO
       </td>
     </tr>
     </tbody>

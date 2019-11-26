@@ -7,6 +7,7 @@ import { ComponentBasicsRoutingModule } from './component-basics-routing.module'
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { PersonalDataComponent } from './components/personal-data/personal-data.component';
 import { ComponentBasicsComponent } from './pages/component-basics/component-basics.component';
+import { MyToggleComponent } from './components/my-toggle/my-toggle.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ComponentBasicsComponent } from './pages/component-basics/component-bas
     HelloWorldComponent,
     PersonalDataComponent,
     ComponentBasicsComponent,
+    MyToggleComponent,
   ],
   exports: [
     ComponentBasicsComponent,

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { mergeMap } from 'rxjs/operators';
 
-import { TodosService, Todo } from '../../../../core/api/todos.service';
 import { TodoFormVm } from '../../components/todos-form/todos-form.component';
+import { TodoModel } from '../../models/todo.model';
+import { TODOS_DATA } from '../../fake-data/todos-data';
 
 @Component({
   selector: 'nts-todos',
@@ -10,30 +10,17 @@ import { TodoFormVm } from '../../components/todos-form/todos-form.component';
 })
 export class TodosComponent implements OnInit {
 
-  todos: Todo[] = [];
-
-  constructor(private todosService: TodosService) {
-  }
+  todos: TodoModel[] = [];
 
   ngOnInit() {
-    this.todosService.getAll().subscribe((todos: Todo[]) => {
-      this.todos = todos;
-    });
+    this.todos = TODOS_DATA;
   }
 
   deleteTodo(todo) {
-    this.todosService.remove(todo).pipe(
-      mergeMap(() => this.todosService.getAll())
-    ).subscribe((todos: Todo[]) => {
-      this.todos = todos;
-    });
+    // TODO
   }
 
   createTodo(todoData: TodoFormVm) {
-    this.todosService.create(todoData).pipe(
-      mergeMap(() => this.todosService.getAll())
-    ).subscribe((todos: Todo[]) => {
-      this.todos = todos;
-    });
+    // TODO
   }
 }

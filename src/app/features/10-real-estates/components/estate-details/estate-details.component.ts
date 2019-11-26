@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nts-estate-details',
@@ -6,7 +6,4 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./estate-details.component.css']
 })
 export class EstateDetailsComponent {
-
-  @Input() item: any;
-
 }
