@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 import { selectors, actions } from '../../store/asyncCounter';
-import { of } from "rxjs";
-import { selectAsyncCounterValue, selectAsyncCounterIsLoading } from '../../store/asyncCounter/async-counter.selectors';
-import { asyncCounterIncReq } from '../../store/asyncCounter/async-counter.actions';
 
 @Component({
   selector: 'nts-async-counter',
@@ -14,18 +12,14 @@ import { asyncCounterIncReq } from '../../store/asyncCounter/async-counter.actio
 export class AsyncCounterComponent {
 
   // TODO
-  value$ = this.store.pipe(
-    select(selectAsyncCounterValue)
-  );
-  isLoading$ = this.store.pipe(
-    select(selectAsyncCounterIsLoading)
-  );
+  value$ = of(12345);
+  isLoading$ = of(false);
 
   constructor(private store: Store<any>) {
   }
 
   increment() {
-    const action = asyncCounterIncReq({ incByReq: 9 });
+    const action = actions.asyncCounterIncReq({ incByReq: 9 });
     this.store.dispatch(action);
   }
 

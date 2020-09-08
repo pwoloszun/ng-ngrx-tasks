@@ -35,7 +35,7 @@ const asyncCounterReducer = createReducer(
 
 );
 
-export function reducer(state = initialState, action: AsyncCounterActions): State {
+export function reducer(state = initialState, action): State {
   return asyncCounterReducer(state, action);
 }
 

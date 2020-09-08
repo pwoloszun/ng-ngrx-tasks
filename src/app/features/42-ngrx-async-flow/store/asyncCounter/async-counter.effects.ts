@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
 import { select, Store, Action } from '@ngrx/store';
 import { of, EMPTY } from 'rxjs';
 import { delay, map, withLatestFrom, switchMap } from 'rxjs/operators';
@@ -14,25 +14,25 @@ const DELAY_IN_MS = 1800;
 @Injectable()
 export class AsyncCounterEffects {
 
-  private asyncCounterValue$ = this.store$.pipe(
-    select(selectors.selectAsyncCounterValue),
-  );
+  private asyncCounterValue$ = of(111); // TODO
 
-  @Effect()
-  incrementAsyncCounter$ = this.actions$.pipe(
-    ofType(actions.AsyncCounterActionTypes.IncrementAsyncCounterRequest),
-    delay(DELAY_IN_MS),
-    
-    // TODO
-  );
+  incrementAsyncCounter$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(actions.AsyncCounterActionTypes.IncrementAsyncCounterRequest),
+      delay(DELAY_IN_MS),
+      // TODO
+    );
+  });
 
   // TODO
-  // @Effect()
-  // decrementAsyncCounter$
+  // decrementAsyncCounter$ = createEffect(() => {
+  //   return EMPTY;
+  // });
 
   // TODO
-  // @Effect()
-  // resetAsyncCounter$
+  // resetAsyncCounter$ = createEffect(() => {
+  //   return EMPTY;
+  // });
 
   constructor(
     private actions$: Actions<Action>,
