@@ -1,8 +1,9 @@
-import { Action } from '@ngrx/store';
+import { Action, props, createAction } from '@ngrx/store';
 
 export enum AsyncCounterActionTypes {
   IncrementAsyncCounterRequest = '[AsyncCounter] IncrementAsyncCounterRequest',
   IncrementAsyncCounterSuccess = '[AsyncCounter] IncrementAsyncCounterSuccess',
+  IncrementAsyncCounterError = '[AsyncCounter] IncrementAsyncCounterError',
 
   DecrementAsyncCounterRequest = '[AsyncCounter] DecrementAsyncCounterRequest',
   DecrementAsyncCounterSuccess = '[AsyncCounter] DecrementAsyncCounterSuccess',
@@ -11,26 +12,12 @@ export enum AsyncCounterActionTypes {
   ResetAsyncCounterSuccess = '[AsyncCounter] ResetAsyncCounterSuccess',
 }
 
-export class IncrementAsyncCounterRequest implements Action {
-  readonly type = AsyncCounterActionTypes.IncrementAsyncCounterRequest;
+export const asyncCounterIncReq = createAction(
+  AsyncCounterActionTypes.IncrementAsyncCounterRequest,
+  props<{ incByReq: number }>()
+);
 
-  constructor(public incBy: number) {
-  }
-}
-
-// TODO: IncrementAsyncCounterSuccess
-
-// TODO DecrementAsyncCounterRequest
-
-// TODO DecrementAsyncCounterSuccess
-
-// TODO ResetAsyncCounterRequest
-
-// TODO ResetAsyncCounterSuccess
-
-export type AsyncCounterActions = IncrementAsyncCounterRequest;
-  // | IncrementAsyncCounterSuccess
-  // | DecrementAsyncCounterRequest
-  // | DecrementAsyncCounterSuccess
-  // | ResetAsyncCounterRequest
-  // | ResetAsyncCounterSuccess;
+export const asyncCounterIncSuccess = createAction(
+  AsyncCounterActionTypes.IncrementAsyncCounterSuccess,
+  props<{ incBySucc: number }>()
+);

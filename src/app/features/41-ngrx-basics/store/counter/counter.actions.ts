@@ -1,4 +1,5 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+
 
 export enum CounterActionTypes {
   IncrementCounter = '[Counter] IncrementCounter',
@@ -6,18 +7,11 @@ export enum CounterActionTypes {
   ResetCounter = '[Counter] ResetCounter',
 }
 
-export class IncrementCounter implements Action {
-  readonly type = CounterActionTypes.IncrementCounter;
-
-  constructor(public incBy: number, public timestamp = Date.now()
-  ) {
-  }
-}
+export const counterInc = createAction(
+  CounterActionTypes.IncrementCounter,
+  props<{ incBy: number }>()
+);
 
 // TODO DecrementCounter
 
 // TODO ResetCounter
-
-export type CounterActions = IncrementCounter;
-  // | DecrementCounter
-  // | ResetCounter;

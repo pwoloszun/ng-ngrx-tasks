@@ -47,4 +47,4 @@ Thumbs.db
 
 # other
 /server/snapshots/*.json
-/docs
+/my-docs

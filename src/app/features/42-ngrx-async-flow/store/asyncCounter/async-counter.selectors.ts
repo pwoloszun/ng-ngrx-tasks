@@ -6,11 +6,10 @@ const selectFeature = (state: ApplicationState) => {
   return state[asyncCounterFeatureKey];
 };
 
-export const selectAsyncCounterValue = createSelector(
-  selectFeature,
-  (state: State) => {
-    return state.asyncValue;
-  }
-);
+// TODO
+export const selectAsyncCounterValue = (state: State) => {
+  return -123;
+};
 
-// TODO export const selectAsyncCounterIsLoading
+// TODO
+// export const selectAsyncCounterIsLoading

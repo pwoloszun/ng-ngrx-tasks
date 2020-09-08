@@ -19,7 +19,7 @@ export class DataApiService<T extends { id: number }> {
   }
 
   update(id: number, changes: Partial<T>): Observable<T> {
-    return this.http.put(this.getSingleUrl({ id }), changes)
+    return this.http.patch(this.getSingleUrl({ id }), changes)
       .pipe(
         map((o: object) => o as T),
         delay(delayInMs),
