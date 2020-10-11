@@ -7,7 +7,6 @@ import { TodosService } from './todos.service';
 import { RoomTemperatureApiService } from './room-temperature-api.service';
 import { FakeApiService } from './fake-api.service';
 import { SearchApiService } from './search-api.service';
-import { RealEstatesApiService } from './real-estates-api.service';
 import { HeroesService } from './hero.service';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { HeroesService } from './hero.service';
     RoomTemperatureApiService,
     FakeApiService,
     SearchApiService,
-    RealEstatesApiService,
     HeroesService,
   ],
 })

@@ -5,7 +5,7 @@ import * as models from './todos.models';
 
 import {
   todosFeatureKey,
-  State,
+  SliceState,
   reducer
 } from './todos.reducer';
 
@@ -15,7 +15,7 @@ export {
   effects,
   models,
 
-  State,
+  SliceState,
   reducer,
   todosFeatureKey,
 };
