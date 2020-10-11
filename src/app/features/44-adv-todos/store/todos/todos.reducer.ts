@@ -7,37 +7,37 @@ import { Todo } from './todos.models';
 
 export const todosFeatureKey = 'todosFeature';
 
-export interface State extends EntityState<Todo> {
-  // additional entities state properties
-  isFetchingMany: boolean;
-  isUpdating: { [id: number]: boolean };
-  isRemoving: { [id: number]: boolean };
-  isFetching: { [id: number]: boolean };
-
-  isEditing: { [id: number]: boolean };
+interface TodoEntityState extends EntityState<Todo> {
 }
 
-// App STATE
-export interface ApplicationState {
-  [todosFeatureKey]: State; // IMPORTANT: prop name must equal featureName
+export enum TodoStatus {
+  Persisted = 'PERSISTED',
+  Saving = 'SAVING',
+  Removing = 'REMOVING',
+  Editing = 'EDITING',
+}
+
+// TODO domain/entities state
+// TODO feature/app logic state
+
+export interface SliceState {
+  // TODO
+  isFetchingMany: boolean;
 }
 
 export const adapter: EntityAdapter<Todo> = createEntityAdapter<Todo>();
+// TODO: adapter.getInitialState({});
 
-export const initialState: State = adapter.getInitialState({
+const initialState: SliceState = {
+  // TODO
   isFetchingMany: false,
-  isUpdating: {},
-  isRemoving: {},
-  isFetching: {},
-
-  isEditing: {},
-});
+};
 
 const todosReducer = createReducer(
   initialState,
 
   on(actions.loadManyTodosRequest, (state) => {
-    return produce(state, (draftState: Draft<State>) => {
+    return produce(state, (draftState: Draft<SliceState>) => {
       draftState.isFetchingMany = true;
     });
   }),
@@ -45,6 +45,11 @@ const todosReducer = createReducer(
   // TODO
 );
 
-export function reducer(state: State | undefined, action: Action): State {
+export function reducer(state: SliceState, action: Action): SliceState {
   return todosReducer(state, action);
+}
+
+// App STATE
+export interface ApplicationState {
+  [todosFeatureKey]: SliceState; // IMPORTANT: prop name must equal featureName
 }

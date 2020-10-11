@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 
-import { ApplicationState, State, counterFeatureKey } from './counter.reducer';
+import { ApplicationState, SliceState, counterFeatureKey } from './counter.reducer';
 
 const selectFeature = (state: ApplicationState) => {
   return state[counterFeatureKey];

@@ -18,16 +18,16 @@ export class AsyncCounterComponent {
   constructor(private store: Store<any>) {
   }
 
-  increment() {
+  incrementHandler() {
     const action = actions.asyncCounterIncReq({ incByReq: 9 });
     this.store.dispatch(action);
   }
 
-  decrement() {
+  decrementHandler() {
     // TODO
   }
 
-  reset() {
+  resetHandler() {
     // TODO
   }
 

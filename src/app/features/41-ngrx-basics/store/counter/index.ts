@@ -2,7 +2,7 @@ import * as actions from './counter.actions';
 import * as selectors from './counter.selectors';
 import {
   counterFeatureKey,
-  State,
+  SliceState,
   reducer,
   ApplicationState,
 } from './counter.reducer';
@@ -10,7 +10,7 @@ import {
 export {
   actions,
   selectors,
-  State,
+  SliceState as State,
   reducer,
   ApplicationState,
   counterFeatureKey,

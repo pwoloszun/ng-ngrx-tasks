@@ -22,15 +22,15 @@ export class SyncCounterComponent {
   constructor(private store: Store<any>) {
   }
 
-  increment() {
+  incrementHandler() {
     // TODO
   }
 
-  decrement() {
+  decrementHandler() {
     // TODO
   }
 
-  reset() {
+  resetHandler() {
     // TODO
   }
 }

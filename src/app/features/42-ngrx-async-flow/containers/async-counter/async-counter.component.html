@@ -1,9 +1,10 @@
 <h3>AsyncCounter</h3>
 
 <nts-counter [value]="value$ | async"
-             (increment)="increment()"
-             (decrement)="decrement()"
-             (reset)="reset()"
-></nts-counter>
+             (increment)="incrementHandler()"
+             (decrement)="decrementHandler()"
+             (reset)="resetHandler()"></nts-counter>
 
 <h3>isLoading$: {{ isLoading$ | async }}</h3>
+
+<!-- <mat-spinner></mat-spinner> -->

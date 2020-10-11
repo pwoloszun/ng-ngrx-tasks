@@ -1,13 +1,17 @@
 import { map } from 'lodash';
 import { createSelector } from '@ngrx/store';
 
-import { adapter, ApplicationState, todosFeatureKey } from './todos.reducer';
+import { adapter, ApplicationState, todosFeatureKey, SliceState } from './todos.reducer';
 import { ITEM_STATUS } from './todos.models';
 
 const {
-  selectIds,
-  selectEntities,
-  selectAll,
+  selectIds, // => [200, 123, 300]
+  selectEntities, // => {
+  //   123: { id: 123, title: 'but milk'},
+  //   200: { id: 200, title: 'read book 22' },
+  //   300: { id: 300, title: 'imba' },
+  // },
+  selectAll, // => [{ id: 200, title: 'read book 22' }, ...]
   // selectTotal,
 } = adapter.getSelectors();
 
@@ -17,7 +21,7 @@ const selectFeature = (state: ApplicationState) => {
 
 export const selectTodosIds = createSelector(
   selectFeature,
-  selectIds,
+  (sliceState) => [] // TODO
 );
 
 // TODO export const selectTodosEntities
@@ -26,9 +30,9 @@ export const selectTodosIds = createSelector(
 
 // TODO export const selectTodosIsFetchingMany
 
-export const selectTodosIsRemoving = createSelector(
+export const selectIsFetchingManyTodos = createSelector(
   selectFeature,
-  (state) => state.isRemoving,
+  (state: SliceState) => state.isFetchingMany,
 );
 
 // TODO export const selectTodosIsUpdating

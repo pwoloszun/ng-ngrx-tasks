@@ -8,12 +8,12 @@ import {
 export const counterFeatureKey = 'counter';
 
 // state shape
-export interface State {
+export interface SliceState {
   value: number;
   updatedAt: number;
 }
 
-export const initialState: State = {
+export const initialState: SliceState = {
   value: 997,
   updatedAt: null,
 };
@@ -21,7 +21,7 @@ export const initialState: State = {
 const reducerCounter = createReducer(
   initialState,
 
-  on(counterInc, (state: State, action) => {
+  on(counterInc, (state: SliceState, action) => {
     const { incBy } = action;
     return {
       value: state.value + incBy,
@@ -31,11 +31,11 @@ const reducerCounter = createReducer(
 
 );
 
-export function reducer(state: (State | undefined) = initialState, action: Action): State {
+export function reducer(state: (SliceState | undefined) = initialState, action: Action): SliceState {
   return reducerCounter(state, action);
 }
 
 // App SLICE state
 export interface ApplicationState {
-  [counterFeatureKey]: State; // IMPORTANT: prop name must equal featureName
+  [counterFeatureKey]: SliceState; // IMPORTANT: prop name must equal featureName
 }

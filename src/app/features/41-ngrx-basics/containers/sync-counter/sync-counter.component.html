@@ -2,9 +2,8 @@
 
 <nts-counter [value]="value$ | async"
              [updatedAt]="updatedAt$ | async"
-             (increment)="increment()"
-             (decrement)="decrement()"
-             (reset)="reset()"
-></nts-counter>
+             (increment)="incrementHandler()"
+             (decrement)="decrementHandler()"
+             (reset)="resetHandler()"></nts-counter>
 
 <h3>Square: {{ squareValue$ | async }}</h3>

@@ -3,7 +3,7 @@ import { Update } from '@ngrx/entity';
 
 import { Todo } from './todos.models';
 
-export enum TodosActionTypes {
+enum TodosActionTypes {
   LoadManyTodosRequest = '[Todos] LoadManyTodosRequest',
   LoadManyTodosSuccess = '[Todos] LoadManyTodosSuccess',
 
