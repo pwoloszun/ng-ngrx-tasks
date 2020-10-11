@@ -26,7 +26,6 @@ const appRoutes: Routes = [
     loadChildren: () => import('./features/21-content-projection/content-projection.module').then(m => m.ContentProjectionModule),
   },
 
-  // TODO
   {
     path: 'ngrx-basics',
     loadChildren: () => import('./features/41-ngrx-basics/ngrx-basics.module').then(m => m.NgrxBasicsModule),
@@ -46,6 +45,10 @@ const appRoutes: Routes = [
   {
     path: 'many-room-detectors',
     loadChildren: () => import('./features/46-many-room-detectors/many-room-detectors.module').then(m => m.ManyRoomDetectorsModule),
+  },
+  {
+    path: 'my-mail',
+    loadChildren: () => import('./features/47-my-mail/my-mail.module').then(m => m.MyMailModule),
   },
 
   { path: '**', component: PageNotFoundComponent }
