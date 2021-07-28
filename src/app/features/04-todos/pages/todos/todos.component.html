@@ -2,12 +2,13 @@
   <div class="mdl-cell mdl-cell--3-col graybox">
   </div>
   <div class="mdl-cell mdl-cell--6-col graybox">
-
+<!-- Pure/Presentation/Dumb component -->
     <nts-todos-list [items]="todos"
                     (deleteItem)="deleteTodo($event)"></nts-todos-list>
 
     <hr />
 
+<!-- Pure/Presentation/Dumb component -->
     <nts-todos-form (createItem)="createTodo($event)"></nts-todos-form>
 
   </div>
