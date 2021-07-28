@@ -13,35 +13,24 @@ import { ManageTodosService } from '../../services/manage-todos.service';
 })
 export class TodosComponent implements OnInit {
 
-  todos = this.manageTodosService.todos;
+  get todos() {
+    return this.manageTodosService.todos;
+  }
 
+  // App Service aka App Facade
   constructor(private manageTodosService: ManageTodosService) {
   }
 
   ngOnInit() {
-    // this.todos = TODOS_DATA;
     this.manageTodosService.loadAll();
   }
 
   deleteTodo(todo: TodoModel) {
     this.manageTodosService.removeTodo(todo);
-    // console.log('del', todo);
-    // const index = this.todos.indexOf(todo);
-    // if (index > -1) {
-    //   this.todos.splice(index, 1);
-    // }
-    // this.todos = this.todos.filter((t) => t.id !== todo.id);
   }
 
   createTodo(todoData: TodoFormVm) {
     const { title, description } = todoData;
     this.manageTodosService.createTodo(title, description);
-
-    // console.log('creat', todoData);
-    // const id = Math.random();
-
-    // const newTodo = { id, title, description };
-    // this.todos.push(newTodo);
-    // this.todos = [...this.todos, newTodo];
   }
 }
