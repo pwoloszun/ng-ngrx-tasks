@@ -6,14 +6,14 @@ import {
   Output,
 } from '@angular/core';
 
-import { Todo } from '@api/models/todos.models';
+import { TodoModel } from '../../models/todo.model';
 
 @Component({
   selector: 'nts-todos-list',
   templateUrl: './todos-list.component.html',
   styleUrls: ['./todos-list.component.css'],
 })
-export class TodosListComponent<T extends Todo> implements OnInit {
+export class TodosListComponent<T extends TodoModel> implements OnInit {
 
   @Input() items: T[] | null;
 
