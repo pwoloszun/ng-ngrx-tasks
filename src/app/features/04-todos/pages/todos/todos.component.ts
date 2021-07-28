@@ -20,13 +20,20 @@ export class TodosComponent implements OnInit {
 
   deleteTodo(todo: TodoModel) {
     console.log('del', todo);
-
-    // TODO
+    // const index = this.todos.indexOf(todo);
+    // if (index > -1) {
+    //   this.todos.splice(index, 1);
+    // }
+    this.todos = this.todos.filter((t) => t.id !== todo.id);
   }
 
   createTodo(todoData: TodoFormVm) {
     console.log('creat', todoData);
+    const { title, description } = todoData;
+    const id = Math.random();
 
-    // TODO
+    const newTodo = { id, title, description };
+    // this.todos.push(newTodo);
+    this.todos = [...this.todos, newTodo];
   }
 }
