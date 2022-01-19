@@ -3,6 +3,7 @@ import { createReducer, on, Action } from '@ngrx/store';
 
 import {
   counterInc,
+  myIncrement
 } from './counter.actions';
 
 export const counterFeatureKey = 'counter'; // state slice ID
@@ -28,6 +29,15 @@ const reducerCounter = createReducer(
       updatedAt: 12333444
     };
   }),
+
+  on(myIncrement, (state: SliceState, action) => {
+    const nextState = {
+      ...state,
+      value: state.value + 10
+    };
+    return nextState;
+  }),
+
 
 );
 

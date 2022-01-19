@@ -24,7 +24,8 @@ export class SyncCounterComponent {
   constructor(private store: Store<any>) { }
 
   incrementHandler() {
-    // TODO
+    const action = actions.myIncrement();
+    this.store.dispatch(action);
   }
 
   decrementHandler() {

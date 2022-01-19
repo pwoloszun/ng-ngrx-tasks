@@ -12,6 +12,12 @@ export const counterInc = createAction(
   props<{ incBy: number }>()
 );
 
+
+export const myIncrement = createAction(
+  '[my Counter] my increment',
+  // props<{ incBy: number }>()
+);
+
 // TODO DecrementCounter
 
 // TODO ResetCounter
