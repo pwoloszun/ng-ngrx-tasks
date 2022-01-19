@@ -14,13 +14,14 @@ import {
 })
 export class SyncCounterComponent {
 
-  // TODO
-  value$ = of(123);
+  value$ = this.store.pipe(
+    select((state) => state.counter.value),
+  );
+
   updatedAt$ = of(1572311630612);
   squareValue$ = of(-997);
 
-  constructor(private store: Store<any>) {
-  }
+  constructor(private store: Store<any>) { }
 
   incrementHandler() {
     // TODO

@@ -5,16 +5,16 @@ import {
   counterInc,
 } from './counter.actions';
 
-export const counterFeatureKey = 'counter';
+export const counterFeatureKey = 'counter'; // state slice ID
 
 // state shape
 export interface SliceState {
   value: number;
-  updatedAt: number;
+  updatedAt: number | null;
 }
 
 export const initialState: SliceState = {
-  value: 997,
+  value: 300,
   updatedAt: null,
 };
 
