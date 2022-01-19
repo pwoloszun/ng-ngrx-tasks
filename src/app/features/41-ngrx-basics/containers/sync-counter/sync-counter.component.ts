@@ -15,7 +15,7 @@ import {
 export class SyncCounterComponent {
 
   value$ = this.store.pipe(
-    select((state) => state.counter.value),
+    select(selectors.selectCounterValue),
   );
 
   updatedAt$ = of(1572311630612);
@@ -24,7 +24,9 @@ export class SyncCounterComponent {
   constructor(private store: Store<any>) { }
 
   incrementHandler() {
-    const action = actions.myIncrement();
+    const action = actions.myIncrement({
+      incrementBy: 5,
+    });
     this.store.dispatch(action);
   }
 

@@ -7,7 +7,7 @@ const selectFeature = (state: ApplicationState) => {
 };
 
 export const selectCounterValue = (state: ApplicationState) => {
-  return -997; // TODO
+  return state.counter.value;
 };
 
 

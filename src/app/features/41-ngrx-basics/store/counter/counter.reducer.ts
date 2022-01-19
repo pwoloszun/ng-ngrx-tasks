@@ -31,10 +31,11 @@ const reducerCounter = createReducer(
   }),
 
   on(myIncrement, (state: SliceState, action) => {
-    const nextState = {
-      ...state,
-      value: state.value + 10
-    };
+    const { incrementBy } = action;
+    console.log('red:', state, action);
+    const nextState = produce(state, (draft) => {
+      draft.value = state.value + incrementBy;
+    });
     return nextState;
   }),
 
